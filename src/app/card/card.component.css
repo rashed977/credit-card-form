@@ -1,0 +1,168 @@
+.main{
+  display: flex;
+  width:100%;
+  height:657px;
+}
+h2,h5,p{
+  color:hsl(270, 3%, 87%);
+}
+.left{
+  background-image: url("/assets/images/bg-main-desktop.png");
+  width: 25%;
+  height:657px;
+}
+.card-front>img{
+  width:350px;
+  height:200px;
+  border-radius: 7px;
+}
+.card-front{
+  position: relative;
+  top:150px;
+  left:100px;
+}
+.card-back>img{
+  width:350px;
+  height:200px;
+  border-radius: 5px;
+}
+.card-back{
+  position: relative;
+  top:170px;
+  left:170px;
+}
+.circle{
+  position: absolute;
+  display: flex;
+  top:20px;
+  left:20px;
+}
+.filled-circle{
+  background-color: white;
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+}
+.empty-circle{
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  border: 1px solid hsl(270, 3%, 87%);
+  align-self: center;
+  margin-left: 14px;
+}
+.card-number{
+  position: absolute;
+  width:295px;
+  height: 30px;
+  top:110px;
+  left:25px;
+}
+.card-number>h2{
+
+  width:295px;
+  height: 30px;
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.card-details{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top:165px;
+  width:300px;
+  height: 30px;
+  left:25px;
+}
+.cvc{
+  position: absolute;
+  top:87px;
+  right:37px;
+  letter-spacing: 1px;
+
+}
+.right{
+  margin:220px auto 0px auto;
+  width:25%;
+}
+.right>form>div{
+  margin-bottom: 25px;
+}
+input{
+  width:100%;
+  height: 37px;
+  border-radius: 5px;
+  border: 1px solid rgb(158, 158, 158);
+  padding-left: 10px;
+  color:black;
+  font-size: 18px;
+}
+label{
+  display: block;
+  /* margin-bottom: 8px;; */
+}
+label>p{
+  color: black;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.date-cvc{
+  display: flex;
+  width:100%
+}
+.date-cont{
+width:70%;
+display: flex;
+flex-wrap: wrap;
+}
+input.date{
+  width:75px;
+  /* margin-top: -1px; */
+}
+.cvc-1{
+  width:60%;
+  margin-left: 10px;
+}
+button{
+  width:100%;
+  height:40px;
+  border-radius: 5px;
+  border: 1px solid hsl(278, 68%, 11%);
+  background-color: hsl(278, 68%, 11%);
+  color:white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.date-mm{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+mat-error{
+font-size: small;
+}
+.done{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:25%;
+  margin:auto;
+}
+.svg{
+  margin-bottom: 30px;
+}
+.text>h1{
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.text>p{
+  color:hsl(279, 6%, 55%);
+  font-weight: 500;
+}
+.display{
+  display: none;
+}

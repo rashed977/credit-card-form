@@ -1,0 +1,82 @@
+<div class="main">
+  <div class="left">
+    <div class="card-front">
+
+      <div class="circle">
+
+        <div class="filled-circle"></div>
+        <div class="empty-circle"></div>
+      </div>
+      <div class="card-number"><h2>{{visa.value.number}}</h2></div>
+
+      <div class="card-details">
+        <div class="card-holder"><h5>{{visa.value.name}}</h5></div>
+        <div class="card-date"><h5 *ngIf="visa.value.mm">
+          {{visa.value.mm+'/'+visa.value.yy}}</h5></div>
+      </div>
+      <img src="/assets/images/bg-card-front.png" alt="crad-front">
+    </div>
+
+    <div class="card-back">
+      <img src="/assets/images/bg-card-back.png" alt="crad-back">
+      <div class="cvc"><p>{{visa.value.cvc}}</p></div>
+    </div>
+  </div>
+
+  <div class="right" [class.display]="display">
+    <form [formGroup]="visa" (ngSubmit)="onSubmit()">
+      <div >
+        <label for="cardholder name"><p>CARDHOLDER NAME</p></label>
+        <input type="text" formControlName="name" placeholder="ex. Rashed">
+        <mat-error *ngIf="name?.errors?.['required'] && name?.touched">
+          field is required</mat-error>
+
+      </div>
+      <div>
+        <label for="card number"><p>CARD NUMBER</p></label>
+        <input  maxlength="19" formControlName="number" #input (keydown)="space(input.value)"
+        >
+        <mat-error *ngIf="number?.errors?.['required'] && number?.touched">field is required</mat-error>
+        <mat-error *ngIf="number?.errors?.['pattern']">wrong format, numbers only</mat-error>
+      </div>
+      <div class="date-cvc">
+
+        <div class="date-cont">
+
+          <label for="date"><p>EXP. DATE (MM/YY)</p></label>
+
+          <div class="date-mm">
+            <input type="text" class="date" placeholder="MM" formControlName="mm"
+            maxlength="2" minlength="2" >
+            <mat-error *ngIf="(mm?.touched || yy?.touched) && (mm?.errors?.['required'] || yy?.errors?.['required']) ">can't be blank</mat-error>
+          </div>
+
+          <div class="date-yy">
+            <input type="text" class="date" placeholder="YY" formControlName="yy" maxlength="2" minlength="2">
+
+          </div>
+        </div>
+
+        <div class="cvc-1">
+          <label for="cvc"><p>CVC</p></label>
+          <input type="text" minlength="3" matInput maxlength="3" placeholder="e.g. 123" formControlName="cvc">
+          <mat-error *ngIf="cvc?.['invalid'] && cvc?.touched">can't be blank</mat-error>
+        </div>
+
+      </div>
+      <button type="submit" mat-input [disabled]="visa.invalid">Confirm</button>
+    </form>
+  </div>
+
+  <div class="done" [class.display]="doneDisplay">
+    <div class="svg">
+      <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="url(#a)"/><path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3"/><defs><linearGradient id="a" x1="-23.014" y1="11.507" x2="0" y2="91.507" gradientUnits="userSpaceOnUse"><stop stop-color="#6348FE"/><stop offset="1" stop-color="#610595"/></linearGradient></defs></svg>
+    </div>
+    <div class="text">
+      <h1>THANK YOU!</h1>
+      <p class="bold">We've added your card details</p>
+    </div>
+    <button>Continue</button>
+  </div>
+
+</div>
